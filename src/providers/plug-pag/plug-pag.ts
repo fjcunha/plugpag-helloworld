@@ -76,27 +76,22 @@ export class PlugPagService {
   }
 
   /**Method to filter availables PAGSEGURO devices */
-  FilterPagSeguroBluetoothDevices(paymentSerialDevice, devices) {
+  FilterPagSeguroBluetoothDevices(devices) {
     let filtered = [];
     if (devices == null) return;
 
-    devices.forEach(element => {
-        if (element.name == paymentSerialDevice){
-          filtered.push(element);
-        }       
-      });
 
     //WITH MORE THAN ONE DEVICE
-    // devices.forEach(element => {
-    //   if (element.name.startsWith("PRO-") ||
-    //       element.name.startsWith("W-") ||
-    //       element.name.startsWith("W+-") ||
-    //       element.name.startsWith("MOBI-") ||
-    //       element.name.startsWith("PAX-") ||
-    //       element.name.startsWith("PLUS-") ||
-    //       element.name.startsWith("MCHIP-"))   filtered.push(element);
+    devices.forEach(element => {
+      if (element.name.startsWith("PRO-") ||
+          element.name.startsWith("W-") ||
+          element.name.startsWith("W+-") ||
+          element.name.startsWith("MOBI-") ||
+          element.name.startsWith("PAX-") ||
+          element.name.startsWith("PLUS-") ||
+          element.name.startsWith("MCHIP-"))   filtered.push(element);
       
-    //});
+    });
     return filtered;
   }
 

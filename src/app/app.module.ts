@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { PlugPagService } from '../providers/plug-pag/plug-pag';
+import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PlugPagService } from '../providers/plug-pag/plug-pag';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PlugPagService,
+    BluetoothSerial
   ]
 })
 export class AppModule {}
