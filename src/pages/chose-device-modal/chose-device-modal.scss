@@ -1,0 +1,63 @@
+page-chose-device-modal {
+  .text-vrau{
+    white-space: normal;
+  }
+
+  .list-md > .item-block:last-child ion-label, .list-md > .item-block:last-child .item-inner, .list-md > .item-wrapper:last-child ion-label, .list-md > .item-wrapper:last-child .item-inner {
+    white-space: normal;
+    border-bottom: 0;
+  }
+
+  .list-ios > .item-block:last-child ion-label, .list-ios > .item-block:last-child .item-inner, .list-ios > .item-wrapper:last-child ion-label, .list-ios > .item-wrapper:last-child .item-inner {
+    white-space: normal;
+    border-bottom: 0;
+  }
+
+  .scroll-content {
+    height: 60vh;
+    left: 0;
+    right: 0;
+    top: 20%;
+    bottom: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    will-change: scroll-position;
+    contain: size style layout;
+    margin: 20px;
+    background: #fff;
+    box-shadow: 0px 0px 5px #000;
+  }
+  .item_button_send {
+    border: 1px solid #375582;
+    color: #375582;
+    background-color: transparent;
+    height: 35px;
+    font-size: 12px;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: -2px 2px 0px 0px #375582;
+  }
+  .content-ios {
+    color: #000;
+    background-color: transparent;
+  }
+  ion-app.ios [padding] .scroll-content {
+    padding: 16px;
+    height: 250px;
+    top: 30px;
+  }
+  .content-md {
+    color: #000;
+    background-color: transparent;
+  }
+  ion-app.md [padding] .scroll-content {
+    padding: 16px;
+    height: 250px;
+    top: 30px;
+  }
+}

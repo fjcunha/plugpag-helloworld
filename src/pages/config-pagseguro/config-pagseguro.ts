@@ -24,6 +24,7 @@ export class ConfigPagseguroPage {
   public user:any = {};
   public libVersion:string = '';
   public isAuthenticated:boolean = false;
+  public refreshAuth:boolean = false;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -31,6 +32,7 @@ export class ConfigPagseguroPage {
   }
 
   CheckAuthentication(){
+    this.refreshAuth = false;
     this.plugpag.CheckAuthentication().then(res=>{
       this.isAuthenticated = res;
     })
@@ -49,10 +51,13 @@ export class ConfigPagseguroPage {
   }
 
   ionViewWillEnter(){
+    console.log('ionViewWillEnter');
     this.CheckAuthentication();
   }
 
   ionViewDidLoad() {
+    console.log('ionViewDidLoad');
+
     this.GetLibVersion();
     this.CheckAuthentication();
   }
@@ -67,8 +72,10 @@ export class ConfigPagseguroPage {
   }
 
   ShowAuthenticationActivity(){
+    this.refreshAuth = true;
+
     this.plugpag.ShowAuthenticationActivity().then(res=>{
-      this.CheckAuthentication();
+      
     })
     .catch(err=>{
       console.log(err);

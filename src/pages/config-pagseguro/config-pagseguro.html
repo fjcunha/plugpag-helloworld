@@ -31,11 +31,21 @@
 
       <br>
 
-      <ion-row>
+      <ion-row *ngIf="!refreshAuth">
         <ion-col (click)="ShowAuthenticationActivity()">
           <img class="img_btn_cont_comp" src="assets/imgs/img_btn_conectar.png">
         </ion-col>
       </ion-row>
+
+      <ion-row *ngIf="refreshAuth">
+        <ion-col (click)="CheckAuthentication()">
+          <button ion-button>
+            <ion-icon name="refresh"></ion-icon>
+            Checar Autenticação
+          </button>
+        </ion-col>
+      </ion-row>
+
     </ion-col>
 
     <ion-col col-12 *ngIf="isAuthenticated" style="text-align: center;">

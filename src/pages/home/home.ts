@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, Button } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Button, ModalController } from 'ionic-angular';
 import { PlugPagService } from '../../providers/plug-pag/plug-pag';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
 import { PresentPaymentData, PaymentType, InstallmentType } from '../../providers/plug-pag/PresentPayment.data';
@@ -24,7 +24,8 @@ export class HomePage {
               public navParams: NavParams,
               private plugpag:PlugPagService,
               private bluetoothSerial: BluetoothSerial,
-              private alertCtrl:AlertController) {
+              private alertCtrl:AlertController,
+              private modalCtrl:ModalController) {
 
     this.presentPaymentCheckoutData = {
       PaymentType:PaymentType.CREDITO,
@@ -50,6 +51,19 @@ export class HomePage {
     return this.plugpag.FilterPagSeguroBluetoothDevices(devices);
   }
 
+  ChoseDevice() {
+    let modal = this.modalCtrl.create('ChoseDeviceModalPage', {devices: this.devices});
+    modal.onDidDismiss(data => {
+      console.log(data);
+      if (data != null) setTimeout(function (that) {
+        that.PresentCheckout(data, that.presentPaymentCheckoutData);
+      }, 500, this);
+    })
+
+    modal.present();
+  }
+
+
   GetBoundedList(): any {
     console.log('getting list of bluetooths');
     
@@ -67,7 +81,7 @@ export class HomePage {
           let device = this.devices[0];
           this.PresentCheckout(device, this.presentPaymentCheckoutData);
         } else {
-          //this.ChoseDevice();
+          this.ChoseDevice();
         }
       }
 

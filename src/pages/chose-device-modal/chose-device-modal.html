@@ -1,0 +1,26 @@
+<ion-content padding>
+  <ion-row>
+    <ion-col (click)="Close()">
+      <img style="height: 20px;" src="assets/imgs/icon-close.png">
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      PAGSEGURO
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-12>
+      Escolha o dispositivo
+    </ion-col>
+  </ion-row>
+  <ion-list>
+    <ion-item *ngFor="let device of devices" (click)="Close(device)">
+      <ion-thumbnail item-start>
+        <img [src]="GetDeviceImage(device.name)" style="height: 80px;object-fit: contain;">
+      </ion-thumbnail>
+      <h2>Moderninha</h2>
+      <label>{{device.name}}</label>
+    </ion-item>
+  </ion-list>
+</ion-content>

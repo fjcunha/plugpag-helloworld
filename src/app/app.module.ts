@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { PlugPagService } from '../providers/plug-pag/plug-pag';
 import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BluetoothSerial } from '@ionic-native/bluetooth-serial';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PlugPagService,
-    BluetoothSerial
+    BluetoothSerial,
+    AndroidPermissions
   ]
 })
 export class AppModule {}
