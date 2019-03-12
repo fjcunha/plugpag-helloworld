@@ -29,6 +29,7 @@ export class MyApp {
     permissions.push(this.androidPermissions.PERMISSION.ACCESS_COARSE_LOCATION);
     permissions.push(this.androidPermissions.PERMISSION.ACCESS_FINE_LOCATION);
     permissions.push(this.androidPermissions.PERMISSION.READ_PHONE_STATE);
+    permissions.push(this.androidPermissions.PERMISSION.BLUETOOTH);
     this.androidPermissions.requestPermissions(permissions).then(resP=>{
       console.log('PERMISSIONS REQUEST RESULT: ' + JSON.stringify(resP));      
     })

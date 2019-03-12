@@ -30,11 +30,12 @@ export class HomePage {
     this.presentPaymentCheckoutData = {
       PaymentType:PaymentType.CREDITO,
       InstallmentType:InstallmentType.A_VISTA,
-      amount:1.00,
+      amount:200,//valor inteiro, neste exemplo R$2,00
       SaleRef: "CODVENDA",
       installments: 1,
       deviceIdentification: ''
     };
+
   }
 
   ionViewDidLoad() {
