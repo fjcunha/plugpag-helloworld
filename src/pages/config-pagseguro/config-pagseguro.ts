@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 //providers
-import {LocalUser} from '../../providers/local-user/local-user';
-import {PlugPagService} from '../../providers/plugpag/PlugPag';
-import { DefaultAlerts } from '../../providers/default-alerts/default-alerts';
+import { PlugPagService } from '../../providers/plug-pag/plug-pag';
+
+//providers
+// import {PlugPagService} from '../../providers/plugpag/PlugPag';
 
 
 /**
@@ -26,7 +27,6 @@ export class ConfigPagseguroPage {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              private localUser:LocalUser,
               private plugpag:PlugPagService) {
   }
 
@@ -37,13 +37,6 @@ export class ConfigPagseguroPage {
     .catch(err=>{
       console.log(err);
     })
-  }
-
-  LoadUser(): any {
-    this.localUser.CheckLoggedUser().then(res=>{
-      this.user = res;
-      console.log(this.user);
-    });
   }
 
   GetLibVersion(){
@@ -60,7 +53,6 @@ export class ConfigPagseguroPage {
   }
 
   ionViewDidLoad() {
-    this.LoadUser();
     this.GetLibVersion();
     this.CheckAuthentication();
   }
