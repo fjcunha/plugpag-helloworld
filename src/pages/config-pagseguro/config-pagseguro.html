@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon>
+        <img src="assets/imgs/icon_toggle.png">
+      </ion-icon>
+    </button>    
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+    <ion-col col-12 style="text-align: center;">
+      <img src="assets/imgs/pagseguro-uol-logo.jpg" style="height: 50px;" />
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col col-12 style="text-align: center;">
+      <span style="font-size: 17pt;color: gray;font-weight: 400;">PLUGIN PLUGPAG</span>
+    </ion-col>
+
+    <ion-col col-12 style="text-align: center;position: relative;">
+      <span style="position: relative;top: -15px;">v {{libVersion}}</span>
+    </ion-col>
+
+    <ion-col col-12 *ngIf="!isAuthenticated" style="text-align: center;">
+      <label style="font-size: 20px; color: gray; font-weight: 400; text-align: center;">
+        Nenhuma conta PagSeguro configurada
+      </label>
+
+      <br>
+
+      <ion-row>
+        <ion-col (click)="ShowAuthenticationActivity()">
+          <img class="img_btn_cont_comp" src="assets/imgs/img_btn_conectar.png">
+        </ion-col>
+      </ion-row>
+    </ion-col>
+
+    <ion-col col-12 *ngIf="isAuthenticated" style="text-align: center;">
+      <label style="font-size: 20px; color: gray; font-weight: 400; text-align: center;">
+        Conta PagSeguro configurada
+      </label>
+
+      <br>
+
+      <ion-row>
+        <ion-col (click)="LogoutPagseguro()">
+          <img class="img_btn_cont_comp" src="assets/imgs/img_btn_desconectar.png">
+        </ion-col>
+      </ion-row>
+        
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+  <button ion-button (click)="navCtrl.setRoot('HomePage')" style="width: 100%; margin: 0; background: #313057;">
+    RETORNAR À PRINCIPAL
+  </button>
+</ion-footer>
