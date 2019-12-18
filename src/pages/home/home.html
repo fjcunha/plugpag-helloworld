@@ -6,16 +6,43 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>home</ion-title>
+    <ion-title>PlugPag Test App</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<button ion-button (click)="OpenConfigPagseguro()">
-  Configurações
-</button>
 
-<button ion-button (click)="CheckDevice()">
-  Efetuar Pagamento
-</button>
+<ion-row>
+
+  <h4>Antes de fazer um pagamento certifique-se:</h4>
+  <label><b>1º</b> Pareamento do dispositivo (maquininha) com o celular</label>
+  <label><b>2º</b> Bluetooth está ligado</label>
+  <label><b>3º</b> Se Minizinha (pinpad) a conta deve estar configurada pelo menu 'Configurações'</label>
+  <label><b>4º</b> Não utilize ','(virgula) no valor. (ex. se quiser cobrar R$2,00 digite 200)</label>
+  
+
+  <ion-col col-4>
+    <ion-item>
+      <ion-label floating>Valor</ion-label>
+      <ion-input type="number" [(ngModel)]="inputAmount"></ion-input>
+    </ion-item>
+  </ion-col>
+  <ion-col col-8 style="margin-top:20px;">
+    <button ion-button block (click)="CheckDevice()">
+      Efetuar Pagamento
+    </button>
+  </ion-col>
+</ion-row>
+
+<ion-row style="margin-top: 50px;">
+
+  <h4>
+    Utilize as configuração apenas se for usar minizinha (pinpad).
+  </h4>
+
+  <button ion-button block color="secondary" (click)="OpenConfigPagseguro()">
+    Configurações
+  </button>
+</ion-row>
+
 </ion-content>

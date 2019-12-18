@@ -19,6 +19,7 @@ import { PresentPaymentData, PaymentType, InstallmentType } from '../../provider
 export class HomePage {
   public devices = [];
   private presentPaymentCheckoutData: PresentPaymentData;
+  public inputAmount:number = 0;
   
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -110,6 +111,9 @@ export class HomePage {
   }
 
   PresentCheckout(device, checkoutData: PresentPaymentData) {
+
+    checkoutData.amount = this.inputAmount;
+
     console.log("Device:");
     console.log(JSON.stringify(device));
     console.log("Checkout Data:");
